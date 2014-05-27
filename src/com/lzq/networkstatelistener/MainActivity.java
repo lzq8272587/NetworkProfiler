@@ -37,15 +37,9 @@ public class MainActivity extends Activity {
         mTabsAdapter.addTab(bar.newTab().setText("Network State"),
         	      NetworkStateFragment.class, null);
         
-        mTabsAdapter.addTab(bar.newTab().setText("Network State"),
-        	      NetworkStateFragment.class, null);
+
         
-//        mTabsAdapter.addTab(bar.newTab().setText("Simple"),
-//                CountingFragment.class, null);
-//        mTabsAdapter.addTab(bar.newTab().setText("List"),
-//                FragmentPagerSupport.ArrayListFragment.class, null);
-//        mTabsAdapter.addTab(bar.newTab().setText("Cursor"),
-//                CursorFragment.class, null);
+
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

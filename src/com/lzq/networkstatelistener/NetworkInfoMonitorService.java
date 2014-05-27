@@ -264,8 +264,8 @@ public class NetworkInfoMonitorService extends Service {
 			 * 
 			 * 载干比 ，它是指空中模拟电波中的信号与噪声的比值
 			 */
-			MainActivity_old.UIHandler.post(new UIUpdater(
-					MainActivity_old.ThreegTextView, "IsGsm : "
+			NetworkStateFragment.UIHandler.post(new UIUpdater(
+					NetworkStateFragment.ThreegTextView, "IsGsm : "
 							+ signalStrength.isGsm() + "\nCDMA Dbm : "
 							+ signalStrength.getCdmaDbm() + "Dbm"
 							+ "\nCDMA Ecio : " + signalStrength.getCdmaEcio()
