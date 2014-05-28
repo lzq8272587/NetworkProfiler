@@ -68,6 +68,7 @@ public class NetworkInfoMonitorService extends Service {
 		tel = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		connectMgr = (ConnectivityManager) this
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		
 
 	}
 
@@ -135,7 +136,7 @@ public class NetworkInfoMonitorService extends Service {
 		 * 启动一个上行速率测试线程，不断向目标服务器发送随机字节，以统计上行发送速率变化情况 
 		 */
 		UploadSpeedTestThread ustt=new UploadSpeedTestThread();
-		ustt.start();
+		//ustt.start();
 		
 		/**
 		 * 开始监听信号强度
@@ -344,9 +345,6 @@ public class NetworkInfoMonitorService extends Service {
 	
 	private class UploadSpeedTestThread extends Thread
 	{
-		
-		
-		
 		public void run()
 		{
 			try {

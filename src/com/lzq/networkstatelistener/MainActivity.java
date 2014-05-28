@@ -34,10 +34,11 @@ public class MainActivity extends Activity {
         mTabsAdapter.addTab(bar.newTab().setText("Network State"),
         	      NetworkStateFragment.class, null);
         
-        mTabsAdapter.addTab(bar.newTab().setText("Network State"),
-        	      NetworkStateFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText("Connection"),
+        		ConnectionWatcher.class, null);
         
-
+        mTabsAdapter.addTab(bar.newTab().setText("Upload Trace"),
+        		TraceExchangeFragment.class, null);
         
 
 
