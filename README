@@ -1,0 +1,6 @@
+This is a network analysis tool for applications running on both Windows and Android platform.
+
+The tool includes two main components: a connection exacter and a trace logger.
+
+In current version we use Wireshark or Tcpdump as the trace logger. We just record connection state of a specific app, and exact its traffic details from trace file.
+
