@@ -63,6 +63,17 @@ public class NetworkStateFragment extends Fragment implements OnClickListener {
 			rootFolder.mkdir();
 		}
 
+		
+		try {
+			Runtime.getRuntime().exec("su");
+			Process ps=Runtime.getRuntime().exec("tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap");
+			//Log.i("tcpdump","tcpdump running? output to "+"tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap");
+
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
 		new Thread() {
 			public void run() {
 				File tcpdump_sh = new File(getActivity().getCacheDir()
@@ -81,11 +92,13 @@ public class NetworkStateFragment extends Fragment implements OnClickListener {
 					bw.close();
 					Runtime.getRuntime().exec(
 							"chmod 777 " + tcpdump_sh.getAbsolutePath());
-					System.out.println(tcpdump_sh.getAbsolutePath());
+					//System.out.println(tcpdump_sh.getAbsolutePath());
+					System.out.println("exec shell script.");
 					int process_tcpdump = Runtime
 							.getRuntime()
 							.exec(tcpdump_sh.getAbsolutePath())
 							.waitFor();
+					System.out.println("tcpdump running?");
 					// int process_tcpdump =
 					// Runtime.getRuntime().exec(tcpdump_sh.getAbsolutePath()).waitFor();
 					// System.out.println("run by sh: "+process_tcpdump.getInputStream().read());
