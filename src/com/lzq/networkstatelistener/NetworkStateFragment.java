@@ -97,7 +97,7 @@ public class NetworkStateFragment extends Fragment implements OnClickListener {
 					e.printStackTrace();
 				}
 			}
-		}.start();
+		};//}.start();
 
 		// // 获取Root权限
 		// try {

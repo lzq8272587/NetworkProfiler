@@ -99,6 +99,7 @@ public class ConnectionWatcher extends Fragment {
 		public void run() {
 			try {
 
+				Log.e(TAG, "Read network state from netstat.");
 				while (running) {
 					tcp_br = new BufferedReader(new FileReader(tcp));
 					tcp_br.readLine();
@@ -125,11 +126,12 @@ public class ConnectionWatcher extends Fragment {
 									parseAddr(local_addr)[1],
 									parseAddr(rm_addr)[0],
 									parseAddr(rm_addr)[1]);
-							// System.out.println("PriorCntSet= " +
+							// System.out.println("PriorCntSet= " + 
 							// PriorCntSet);
 							// System.out.println("cnt= " + cnt);
 							// System.out.println(PriorCntSet.contains(cnt));
 							CurCntSet.add(cnt);
+							Log.e(TAG,line);
 							// System.out.println("    " + line);
 						}
 
