@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
         		TraceExchangeFragment.class, null);
         
 
+        
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

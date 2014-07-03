@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.Date;
 
 import android.app.Fragment;
@@ -55,7 +56,7 @@ public class NetworkStateFragment extends Fragment implements OnClickListener {
 		Toast.makeText(getActivity().getApplicationContext(),
 				"NetworkStateListener", Toast.LENGTH_SHORT).show();
 		UIHandler = new Handler();
-
+ 
 		System.out.println(new Date().toString().replace(" ", "_")
 				.replace("+", "_").replace(":", "_"));
 		File rootFolder = new File("/sdcard/network_log");
@@ -65,10 +66,15 @@ public class NetworkStateFragment extends Fragment implements OnClickListener {
 
 		
 		try {
-			Runtime.getRuntime().exec("su");
-			Process ps=Runtime.getRuntime().exec("tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap");
+			Process su=Runtime.getRuntime().exec("su");
+			//Process ps=Runtime.getRuntime().exec("tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap");
+			OutputStream os=su.getOutputStream();
+			//os.write(("tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap").getBytes());
+			Log.e(TAG,"tcpdump -p -vv -s 0 -w "+Environment.getExternalStorageDirectory()+"/capture_lzq.pcap");
+			os.write(("tcpdump -p -vv -s 0 -w "+Environment.getExternalStorageDirectory()+"/capture_lzq.pcap").getBytes());
+			os.flush();
+			os.close();
 			//Log.i("tcpdump","tcpdump running? output to "+"tcpdump -p -vv -s 0 -w "+getActivity().getCacheDir()+"/capture.pcap");
-
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
